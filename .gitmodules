@@ -1,0 +1,3 @@
+[submodule "lib/zxing-cpp"]
+	path = lib/zxing-cpp
+	url = https://github.com/nu-book/zxing-cpp
