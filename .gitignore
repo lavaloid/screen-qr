@@ -33,6 +33,3 @@
 
 # Build
 build/*
-
-# External files
-lib/*
