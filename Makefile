@@ -2675,9 +2675,19 @@ build/obj/lib/zxing-cpp/core/src/textcodec/KRTextEncoder.o: lib/zxing-cpp/core/s
 
 ####### Install
 
-install:  FORCE
+install_screenqr: first FORCE
+	@test -d $(INSTALL_ROOT)/usr/local/bin || mkdir -p $(INSTALL_ROOT)/usr/local/bin
+	$(QINSTALL_PROGRAM) /Users/lavaloid/Documents/Projects/screen-qr/build/screen-qr $(INSTALL_ROOT)/usr/local/bin/screen-qr
+	-strip $(INSTALL_ROOT)/usr/local/bin/screen-qr
 
-uninstall:  FORCE
+uninstall_screenqr: FORCE
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/bin/screen-qr
+	-$(DEL_DIR) $(INSTALL_ROOT)/usr/local/bin/ 
+
+
+install: install_screenqr  FORCE
+
+uninstall: uninstall_screenqr  FORCE
 
 FORCE:
 

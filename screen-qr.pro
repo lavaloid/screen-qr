@@ -9,14 +9,21 @@ OBJECTS_DIR=build/obj
 INCLUDEPATH += .
 INCLUDEPATH += lib/zxing-cpp/core/src
 
+# Configs
 CONFIG += c++17
 CONFIG += object_parallel_to_source
 CONFIG += console
 CONFIG -= app_bundle
 
+# Qt stuff
 QT += widgets
 QT += gui
 QT += qml
+
+# For "make install"
+screenqr.files += build/screen-qr
+screenqr.path += /usr/local/bin
+INSTALLS += screenqr
 
 # You can make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
