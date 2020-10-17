@@ -79,9 +79,9 @@ int main(int argc, char* argv[]) {
 }
 
 void help(char* name) {
-    std::cout << "Usage: " << name << " [-s | -i <path>]" << "\n"
+    std::cerr << "Usage: " << name << " [-s | -i <path>]" << "\n"
               << "\n"
-              << "Options:"
+              << "Options:\n"
               << "    -s          Scan code from screen \n"
               << "    -i <path>   Scan code from image" << std::endl;
 }
