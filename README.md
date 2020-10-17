@@ -1,5 +1,5 @@
 # screen-qr
- Scans QR code from your screen or an image.
+ Scans QR code from your screen or an image. This has only been tested on my computer (MacOS 10.15), but it should work on others.
 
 ## Dependencies
 This project depends on:
