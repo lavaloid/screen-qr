@@ -15,8 +15,8 @@ EQ            = =
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
-CFLAGS        = -pipe -O2 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.15 -Wall -Wextra -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -stdlib=libc++ -O2 -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.15 -Wall -Wextra -fPIC $(DEFINES)
+CFLAGS        = -pipe -O2 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.13 -Wall -Wextra -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -stdlib=libc++ -O2 -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.13 -Wall -Wextra -fPIC $(DEFINES)
 INCPATH       = -I. -I. -Ilib/zxing-cpp/core/src -I../../../Qt/5.15.1/clang_64/lib/QtWidgets.framework/Headers -I../../../Qt/5.15.1/clang_64/lib/QtGui.framework/Headers -I../../../Qt/5.15.1/clang_64/lib/QtQml.framework/Headers -I../../../Qt/5.15.1/clang_64/lib/QtNetwork.framework/Headers -I../../../Qt/5.15.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AGL.framework/Headers -I../../../Qt/5.15.1/clang_64/mkspecs/macx-clang -F/Users/lavaloid/Qt/5.15.1/clang_64/lib
 QMAKE         = /Users/lavaloid/Qt/5.15.1/clang_64/bin/qmake
 DEL_FILE      = rm -f
@@ -39,7 +39,7 @@ COMPRESS      = gzip -9f
 DISTNAME      = screen-qr1.0.0
 DISTDIR = /Users/lavaloid/Documents/Projects/screen-qr/build/obj/screen-qr1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.15 -Wl,-rpath,@executable_path/../Frameworks -Wl,-rpath,/Users/lavaloid/Qt/5.15.1/clang_64/lib
+LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.13 -Wl,-rpath,@executable_path/../Frameworks -Wl,-rpath,/Users/lavaloid/Qt/5.15.1/clang_64/lib
 LIBS          = $(SUBLIBS) -F/Users/lavaloid/Qt/5.15.1/clang_64/lib -framework QtWidgets -framework QtGui -framework AppKit -framework Metal -framework QtQml -framework QtNetwork -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL   
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
@@ -175,7 +175,7 @@ SOURCES       = src/imagehandler.cpp \
 		lib/zxing-cpp/core/src/textcodec/JPTextEncoder.cpp \
 		lib/zxing-cpp/core/src/textcodec/KRHangulMapping.cpp \
 		lib/zxing-cpp/core/src/textcodec/KRTextDecoder.cpp \
-		lib/zxing-cpp/core/src/textcodec/KRTextEncoder.cpp qrc_ZXingQtCamReader.cpp
+		lib/zxing-cpp/core/src/textcodec/KRTextEncoder.cpp 
 OBJECTS       = build/obj/src/imagehandler.o \
 		build/obj/src/main.o \
 		build/obj/lib/zxing-cpp/core/src/BarcodeFormat.o \
@@ -299,8 +299,7 @@ OBJECTS       = build/obj/src/imagehandler.o \
 		build/obj/lib/zxing-cpp/core/src/textcodec/JPTextEncoder.o \
 		build/obj/lib/zxing-cpp/core/src/textcodec/KRHangulMapping.o \
 		build/obj/lib/zxing-cpp/core/src/textcodec/KRTextDecoder.o \
-		build/obj/lib/zxing-cpp/core/src/textcodec/KRTextEncoder.o \
-		build/obj/qrc_ZXingQtCamReader.o
+		build/obj/lib/zxing-cpp/core/src/textcodec/KRTextEncoder.o
 DIST          = ../../../Qt/5.15.1/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.15.1/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.15.1/clang_64/mkspecs/features/device_config.prf \
@@ -864,7 +863,6 @@ Makefile: screen-qr.pro ../../../Qt/5.15.1/clang_64/mkspecs/macx-clang/qmake.con
 		../../../Qt/5.15.1/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.15.1/clang_64/mkspecs/features/lex.prf \
 		screen-qr.pro \
-		lib/zxing-cpp/example/ZXingQtCamReader.qrc \
 		../../../Qt/5.15.1/clang_64/lib/QtWidgets.framework/Resources/QtWidgets.prl \
 		../../../Qt/5.15.1/clang_64/lib/QtGui.framework/Resources/QtGui.prl \
 		../../../Qt/5.15.1/clang_64/lib/QtQml.framework/Resources/QtQml.prl \
@@ -1080,7 +1078,6 @@ Makefile: screen-qr.pro ../../../Qt/5.15.1/clang_64/mkspecs/macx-clang/qmake.con
 ../../../Qt/5.15.1/clang_64/mkspecs/features/yacc.prf:
 ../../../Qt/5.15.1/clang_64/mkspecs/features/lex.prf:
 screen-qr.pro:
-lib/zxing-cpp/example/ZXingQtCamReader.qrc:
 ../../../Qt/5.15.1/clang_64/lib/QtWidgets.framework/Resources/QtWidgets.prl:
 ../../../Qt/5.15.1/clang_64/lib/QtGui.framework/Resources/QtGui.prl:
 ../../../Qt/5.15.1/clang_64/lib/QtQml.framework/Resources/QtQml.prl:
@@ -1100,7 +1097,6 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents lib/zxing-cpp/example/ZXingQtCamReader.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.15.1/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents src/imagehandler.h $(DISTDIR)/
 	$(COPY_FILE) --parents src/imagehandler.cpp src/main.cpp lib/zxing-cpp/core/src/BarcodeFormat.cpp lib/zxing-cpp/core/src/BinaryBitmap.cpp lib/zxing-cpp/core/src/BitArray.cpp lib/zxing-cpp/core/src/BitMatrix.cpp lib/zxing-cpp/core/src/BitMatrixIO.cpp lib/zxing-cpp/core/src/BitSource.cpp lib/zxing-cpp/core/src/CharacterSetECI.cpp lib/zxing-cpp/core/src/ConcentricFinder.cpp lib/zxing-cpp/core/src/DecodeHints.cpp lib/zxing-cpp/core/src/DecodeStatus.cpp lib/zxing-cpp/core/src/GenericGF.cpp lib/zxing-cpp/core/src/GenericGFPoly.cpp lib/zxing-cpp/core/src/GenericLuminanceSource.cpp lib/zxing-cpp/core/src/GlobalHistogramBinarizer.cpp lib/zxing-cpp/core/src/GridSampler.cpp lib/zxing-cpp/core/src/HybridBinarizer.cpp lib/zxing-cpp/core/src/LuminanceSource.cpp lib/zxing-cpp/core/src/MultiFormatReader.cpp lib/zxing-cpp/core/src/MultiFormatWriter.cpp lib/zxing-cpp/core/src/PerspectiveTransform.cpp lib/zxing-cpp/core/src/ReadBarcode.cpp lib/zxing-cpp/core/src/ReedSolomonDecoder.cpp lib/zxing-cpp/core/src/ReedSolomonEncoder.cpp lib/zxing-cpp/core/src/Result.cpp lib/zxing-cpp/core/src/ResultMetadata.cpp lib/zxing-cpp/core/src/ResultPoint.cpp lib/zxing-cpp/core/src/TextDecoder.cpp lib/zxing-cpp/core/src/TextEncoder.cpp lib/zxing-cpp/core/src/TextUtfEncoding.cpp lib/zxing-cpp/core/src/WhiteRectDetector.cpp lib/zxing-cpp/core/src/ZXBigInteger.cpp lib/zxing-cpp/core/src/aztec/AZDecoder.cpp lib/zxing-cpp/core/src/aztec/AZDetector.cpp lib/zxing-cpp/core/src/aztec/AZEncoder.cpp lib/zxing-cpp/core/src/aztec/AZHighLevelEncoder.cpp lib/zxing-cpp/core/src/aztec/AZReader.cpp lib/zxing-cpp/core/src/aztec/AZToken.cpp lib/zxing-cpp/core/src/aztec/AZWriter.cpp lib/zxing-cpp/core/src/datamatrix/DMBitMatrixParser.cpp lib/zxing-cpp/core/src/datamatrix/DMDataBlock.cpp lib/zxing-cpp/core/src/datamatrix/DMDecoder.cpp lib/zxing-cpp/core/src/datamatrix/DMDefaultPlacement.cpp lib/zxing-cpp/core/src/datamatrix/DMDetector.cpp lib/zxing-cpp/core/src/datamatrix/DMECEncoder.cpp lib/zxing-cpp/core/src/datamatrix/DMHighLevelEncoder.cpp lib/zxing-cpp/core/src/datamatrix/DMReader.cpp lib/zxing-cpp/core/src/datamatrix/DMSymbolInfo.cpp lib/zxing-cpp/core/src/datamatrix/DMVersion.cpp lib/zxing-cpp/core/src/datamatrix/DMWriter.cpp lib/zxing-cpp/core/src/maxicode/MCBitMatrixParser.cpp lib/zxing-cpp/core/src/maxicode/MCDecoder.cpp lib/zxing-cpp/core/src/maxicode/MCReader.cpp lib/zxing-cpp/core/src/oned/ODCodabarReader.cpp lib/zxing-cpp/core/src/oned/ODCodabarWriter.cpp lib/zxing-cpp/core/src/oned/ODCode128Patterns.cpp lib/zxing-cpp/core/src/oned/ODCode128Reader.cpp lib/zxing-cpp/core/src/oned/ODCode128Writer.cpp lib/zxing-cpp/core/src/oned/ODCode39Reader.cpp lib/zxing-cpp/core/src/oned/ODCode39Writer.cpp lib/zxing-cpp/core/src/oned/ODCode93Reader.cpp lib/zxing-cpp/core/src/oned/ODCode93Writer.cpp lib/zxing-cpp/core/src/oned/ODEAN13Reader.cpp lib/zxing-cpp/core/src/oned/ODEAN13Writer.cpp lib/zxing-cpp/core/src/oned/ODEAN8Reader.cpp lib/zxing-cpp/core/src/oned/ODEAN8Writer.cpp lib/zxing-cpp/core/src/oned/ODEANManufacturerOrgSupport.cpp lib/zxing-cpp/core/src/oned/ODITFReader.cpp lib/zxing-cpp/core/src/oned/ODITFWriter.cpp lib/zxing-cpp/core/src/oned/ODMultiUPCEANReader.cpp lib/zxing-cpp/core/src/oned/ODReader.cpp lib/zxing-cpp/core/src/oned/ODRowReader.cpp lib/zxing-cpp/core/src/oned/ODRSS14Reader.cpp lib/zxing-cpp/core/src/oned/ODRSSExpandedReader.cpp lib/zxing-cpp/core/src/oned/ODUPCAReader.cpp lib/zxing-cpp/core/src/oned/ODUPCAWriter.cpp lib/zxing-cpp/core/src/oned/ODUPCEANCommon.cpp lib/zxing-cpp/core/src/oned/ODUPCEANExtensionSupport.cpp lib/zxing-cpp/core/src/oned/ODUPCEANReader.cpp lib/zxing-cpp/core/src/oned/ODUPCEReader.cpp lib/zxing-cpp/core/src/oned/ODUPCEWriter.cpp lib/zxing-cpp/core/src/oned/ODWriterHelper.cpp lib/zxing-cpp/core/src/oned/rss/ODRSSExpandedBinaryDecoder.cpp lib/zxing-cpp/core/src/oned/rss/ODRSSFieldParser.cpp lib/zxing-cpp/core/src/oned/rss/ODRSSGenericAppIdDecoder.cpp lib/zxing-cpp/core/src/oned/rss/ODRSSReaderHelper.cpp lib/zxing-cpp/core/src/pdf417/PDFBarcodeValue.cpp lib/zxing-cpp/core/src/pdf417/PDFBoundingBox.cpp lib/zxing-cpp/core/src/pdf417/PDFCodewordDecoder.cpp lib/zxing-cpp/core/src/pdf417/PDFDecodedBitStreamParser.cpp lib/zxing-cpp/core/src/pdf417/PDFDetectionResult.cpp lib/zxing-cpp/core/src/pdf417/PDFDetectionResultColumn.cpp lib/zxing-cpp/core/src/pdf417/PDFDetector.cpp lib/zxing-cpp/core/src/pdf417/PDFEncoder.cpp lib/zxing-cpp/core/src/pdf417/PDFHighLevelEncoder.cpp lib/zxing-cpp/core/src/pdf417/PDFModulusGF.cpp lib/zxing-cpp/core/src/pdf417/PDFModulusPoly.cpp lib/zxing-cpp/core/src/pdf417/PDFReader.cpp lib/zxing-cpp/core/src/pdf417/PDFScanningDecoder.cpp lib/zxing-cpp/core/src/pdf417/PDFWriter.cpp lib/zxing-cpp/core/src/qrcode/QRBitMatrixParser.cpp lib/zxing-cpp/core/src/qrcode/QRCodecMode.cpp lib/zxing-cpp/core/src/qrcode/QRDataBlock.cpp lib/zxing-cpp/core/src/qrcode/QRDecoder.cpp lib/zxing-cpp/core/src/qrcode/QRDetector.cpp lib/zxing-cpp/core/src/qrcode/QREncoder.cpp lib/zxing-cpp/core/src/qrcode/QRErrorCorrectionLevel.cpp lib/zxing-cpp/core/src/qrcode/QRFormatInformation.cpp lib/zxing-cpp/core/src/qrcode/QRMaskUtil.cpp lib/zxing-cpp/core/src/qrcode/QRMatrixUtil.cpp lib/zxing-cpp/core/src/qrcode/QRReader.cpp lib/zxing-cpp/core/src/qrcode/QRVersion.cpp lib/zxing-cpp/core/src/qrcode/QRWriter.cpp lib/zxing-cpp/core/src/textcodec/Big5MapTable.cpp lib/zxing-cpp/core/src/textcodec/Big5TextDecoder.cpp lib/zxing-cpp/core/src/textcodec/Big5TextEncoder.cpp lib/zxing-cpp/core/src/textcodec/GBTextDecoder.cpp lib/zxing-cpp/core/src/textcodec/GBTextEncoder.cpp lib/zxing-cpp/core/src/textcodec/JPTextDecoder.cpp lib/zxing-cpp/core/src/textcodec/JPTextEncoder.cpp lib/zxing-cpp/core/src/textcodec/KRHangulMapping.cpp lib/zxing-cpp/core/src/textcodec/KRTextDecoder.cpp lib/zxing-cpp/core/src/textcodec/KRTextEncoder.cpp $(DISTDIR)/
@@ -1130,19 +1126,13 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all: qrc_ZXingQtCamReader.cpp
+compiler_rcc_make_all:
 compiler_rcc_clean:
-	-$(DEL_FILE) qrc_ZXingQtCamReader.cpp
-qrc_ZXingQtCamReader.cpp: lib/zxing-cpp/example/ZXingQtCamReader.qrc \
-		../../../Qt/5.15.1/clang_64/bin/rcc \
-		lib/zxing-cpp/example/ZXingQtCamReader.qml
-	/Users/lavaloid/Qt/5.15.1/clang_64/bin/rcc -name ZXingQtCamReader lib/zxing-cpp/example/ZXingQtCamReader.qrc -o qrc_ZXingQtCamReader.cpp
-
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: ../../../Qt/5.15.1/clang_64/mkspecs/features/data/dummy.cpp
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -O2 -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.15 -Wall -Wextra -dM -E -o moc_predefs.h ../../../Qt/5.15.1/clang_64/mkspecs/features/data/dummy.cpp
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -O2 -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o moc_predefs.h ../../../Qt/5.15.1/clang_64/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all:
 compiler_moc_header_clean:
@@ -1160,7 +1150,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean 
+compiler_clean: compiler_moc_predefs_clean 
 
 ####### Compile
 
@@ -2682,9 +2672,6 @@ build/obj/lib/zxing-cpp/core/src/textcodec/KRTextDecoder.o: lib/zxing-cpp/core/s
 build/obj/lib/zxing-cpp/core/src/textcodec/KRTextEncoder.o: lib/zxing-cpp/core/src/textcodec/KRTextEncoder.cpp lib/zxing-cpp/core/src/textcodec/KRTextEncoder.h \
 		lib/zxing-cpp/core/src/textcodec/KRHangulMapping.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/lib/zxing-cpp/core/src/textcodec/KRTextEncoder.o lib/zxing-cpp/core/src/textcodec/KRTextEncoder.cpp
-
-build/obj/qrc_ZXingQtCamReader.o: qrc_ZXingQtCamReader.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/qrc_ZXingQtCamReader.o qrc_ZXingQtCamReader.cpp
 
 ####### Install
 

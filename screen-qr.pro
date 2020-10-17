@@ -14,8 +14,6 @@ CONFIG += object_parallel_to_source
 CONFIG += console
 CONFIG -= app_bundle
 
-QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.15
-
 QT += widgets
 QT += gui
 QT += qml
@@ -153,4 +151,3 @@ SOURCES += src/imagehandler.cpp \
            lib/zxing-cpp/core/src/textcodec/KRHangulMapping.cpp \
            lib/zxing-cpp/core/src/textcodec/KRTextDecoder.cpp \
            lib/zxing-cpp/core/src/textcodec/KRTextEncoder.cpp
-RESOURCES += lib/zxing-cpp/example/ZXingQtCamReader.qrc
